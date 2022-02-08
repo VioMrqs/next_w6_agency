@@ -23,7 +23,7 @@ const App = () => {
     localStorage.setItem("darkMode", darkMode);
   });
 
-  function toggleDarkMode() {
+ const toggleDarkMode = () => {
     setDarkMode((darkMode) => !darkMode);
   }
 
