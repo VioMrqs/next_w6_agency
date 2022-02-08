@@ -7,7 +7,8 @@ const Navbar = () => {
   const { darkMode, toggleDarkMode } = useContext(ThemeContext);
 
   return (
-    <nav className="navbar">
+  <div className="navbar">
+    <div className="navbar-right" >
       <ul>
         <Link to="/">Accueil</Link>
       </ul>
@@ -17,12 +18,17 @@ const Navbar = () => {
       <ul>
         <Link to="/works">Projets</Link>
       </ul>
-      <Button
-        onClick={toggleDarkMode}
-        text={darkMode ? "Jour" : "Nuit"}
-        className={darkMode ? "button button-light" : "button button-dark"}
-      />
-    </nav>
+    </div>
+    <div className="navbar-left">
+      <ul>
+        <Button
+          onClick={toggleDarkMode}
+          text={darkMode ? "Jour" : "Nuit"}
+          className={darkMode ? "button button-light" : "button button-dark"}
+        />
+      </ul>
+    </div>
+  </div>
   );
 };
 

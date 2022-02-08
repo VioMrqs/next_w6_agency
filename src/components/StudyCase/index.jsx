@@ -1,14 +1,27 @@
-// import { useState } from "react";
-// import { FaHeart, FaPlusCircle } from "react-icons/fa";
-// import Button from "../Button";
+import projects from '../../data/projects';
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
-const StudyCase = (props) => {
-  const {studycase} = props;
+const StudyCase = () => {
+
+  const { projectTitle } = useParams();
+  const [currentProject, setCurrentProject] = useState(undefined)
+
+    useEffect(() => {
+      const foundProject= projects.find((project) => project.title === projectTitle);
+      setCurrentProject(foundProject);
+    }, [projectTitle])
 
   return (
     <div className="card">
-      <h3>{studycase.title}</h3>
-      <p>{studycase.description}</p>
+      <h2>{currentProject && currentProject.title}</h2>
+      <h3>{currentProject && currentProject.subtitle}</h3>
+      {/* <img
+        className="project-img"
+        src={currentProject && currentProject.img}
+        alt={currentProject && currentProject.title}
+      ></img> */}
+      <p>{currentProject && currentProject.description}</p>
     </div>
   );
 };

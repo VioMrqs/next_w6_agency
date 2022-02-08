@@ -5,17 +5,23 @@ import "./style.scss";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Works from "./pages/Works";
-// import Exercices from "./pages/Works/pages/Exercices";
-// import CaseStudy from "./pages/Works/pages/CaseStudy";
-// import ConcreteCase from "./pages/Works/pages/ConcreteCase";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-
-import { useState } from "react";
+import StudyCase from "./components/StudyCase";
+import { useState, useEffect } from "react";
 import { ThemeContext } from "./ThemeContext";
 
 const App = () => {
-  const [darkMode, setDarkMode] = useState(false);
+
+  const [darkMode, setDarkMode] = useState(
+    localStorage.getItem("darkMode")
+      ? localStorage.getItem("darkMode")
+      : false
+  );
+
+  useEffect(() => {
+    localStorage.setItem("darkMode", darkMode);
+  });
 
   function toggleDarkMode() {
     setDarkMode((darkMode) => !darkMode);
@@ -23,23 +29,19 @@ const App = () => {
 
   return (
     <ThemeContext.Provider value={{ darkMode, toggleDarkMode }}>
-      <div
-        className={
-          darkMode ? "body-dark" : "body-light"
-        }
-      >
+      <div className={darkMode ? "body-dark" : "body-light"}>
         <Router>
           <Navbar />
-          <main
-            className="container"
-          >
+          <main className="container">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
-              <Route path="/works" element={<Works />} />
-              {/* <Route path="/works/exercices" element={<Exercices />} />
-          <Route path="/works/casestudy" element={<CaseStudy />} />
-          <Route path="/works/concretecase" element={<ConcreteCase />} /> */}
+              <Route path="/works" element={<Works />}>
+                <Route
+                  path="/works/:projectTitle-study-case"
+                  element={<StudyCase />}
+                />
+              </Route>
             </Routes>
           </main>
           <Footer />
