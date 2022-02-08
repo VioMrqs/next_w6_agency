@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@300&family=Supermercado+One&display=swap");
+
+$color-bg-dark: #073b4c;
+$color-bg-light: #118ab2;
+$color-light: #ffd166;
+$color-dark: #5f0f40;
+
+body {
+  font-family: "Cairo", sans-serif;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+.container {
+  height: 100vh;
+  width: 80vw;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  margin: 100px;
+}
+
+.body-dark {
+  background-color: $color-bg-dark;
+}
+
+.body-light {
+  background-color: $color-bg-light;
+}
+
+.button {
+  background-color: #023047;
+  border: none;
+  color: #ffcdb2;
+  padding: 15px 32px;
+  margin-right: 0px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.button-dark {
+  background-color: $color-bg-light;
+  color: $color-dark;
+}
+
+.button-light {
+  background-color: $color-bg-dark;
+  color: $color-light;
+}
+
+.footer {
+  flex-shrink: 0;
+  background-color: #ffd166;
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  background-color: #ffd166;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+}
+
+ul a {
+  display: block;
+  color: #000;
+  padding: 8px 0 8px 16px;
+  text-decoration: none;
+}
+
+ul a:hover {
+  background-color: #06d6a0;
+  color: white;
+}
+
+.card{
+  
+}
