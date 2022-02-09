@@ -1,39 +1,41 @@
-@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@300&family=Supermercado+One&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300&family=Quicksand&display=swap');
 
 $color-bg-dark: #073b4c;
-$color-bg-light: #118ab2;
+$color-bg-light: white;
 $color-light: #ffd166;
-$color-dark: #5f0f40;
+$color-dark: #9a031e;
 
 body {
-  font-family: "Cairo", sans-serif;
-  color: white;
   display: flex;
   flex-direction: column;
   align-content: center;
 }
 
 .container {
-  height: 75vh;
-  width: 80vw;
+  height: 100vh;
+  width: 80vh;
   justify-content: center;
   align-items: center;
   padding: 50px;
-  margin: 100px;
+  margin: 50px;
 }
 
 .body-dark {
+  font-family: 'Quicksand', sans-serif;
   background-color: $color-bg-dark;
+  color: $color-bg-light;
 }
 
 .body-light {
+  font-family: "Cairo", sans-serif;
   background-color: $color-bg-light;
+  color: $color-bg-dark;
 }
 
 .button {
   border: none;
   border-radius: 20px;
-  padding: 15px 15px;
+  padding: 5px;
   text-align: center;
   text-decoration: none;
   font-size: 14px;
@@ -41,7 +43,7 @@ body {
 
 .button-dark {
   background-color: $color-bg-light;
-  color: white;
+  color: $color-bg-dark;
 }
 
 .button-light {
@@ -54,11 +56,14 @@ body {
   background-color: $color-light;
   color: $color-dark;
   margin-bottom: 0;
+  min-height: 30px;
+  text-align: center;
 }
 
 .navbar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   flex-direction: row;
   background-color: $color-light;
 }
@@ -79,42 +84,51 @@ ul a {
 
 ul a:hover {
   background-color: $color-dark;
-  color: white;
+  color: $color-bg-light;
 }
 
 .navbar-right{
   display: flex;
   flex-direction: row;
-  font-size: 20px;
   align-items: center;
 }
 
 .navbar-left{
   display: flex;
   flex-direction: row;
-  font-size: 20px;
-  align-items: center;
+  align-items: right;
+  font-size: 16px;
 }
 
 .card{
   display: flex;
   justify-content: center;
   flex-direction: column;
-  width: 250px;
+  width: 400px;
+  height: fit-content;
   text-align: center;
-  border: solid white;
+  border: solid;
   margin: 10px;
   padding: 5px;
+  transition: all .4s ease;
 }
 
 .card-dark{
-background-color: white;
-color: white;
+  box-shadow: 20px 20px rgba(0,0,0,.15);
+  border-color: $color-bg-light;
+}
+
+.card-dark:hover{
+  box-shadow: 10px 10px rgba(0,0,0,.25);
 }
 
 .card-light{
-background-color: white;
-color: white;
+  box-shadow: 20px 20px $color-light;
+  border-color: $color-light;
+}
+
+.card-light:hover{
+  box-shadow: 10px 10px $color-light;
 }
 
 .project-container{
@@ -123,15 +137,7 @@ color: white;
   justify-content: center;
 }
 
-// .project-img {
-//   opacity: 0.5;
-//   position: relative;
-// }
-
-// .center {
-//   position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   transform: translate(-50%, -50%);
-//   font-size: 18px;
-// }
+.project-img {
+  opacity: 0.8;
+  position: relative;
+}
